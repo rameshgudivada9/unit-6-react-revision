@@ -35,6 +35,6 @@ Tree Shaking is a concept in development of eliminating dead code or unused code
 9.What are some features of using webpack?
 Webpack gives you control over how to treat different assets it encounters. For example, you can decide to inline assets to your JavaScript bundles to avoid requests. Webpack also allows you to use techniques like CSS Modules to couple styling with components, and to avoid issues of standard CSS styling.
 
-10.
+
 
 
