@@ -1,0 +1,140 @@
+1.Explain in brief what is node js?
+Node. js (Node) is an open source development platform for executing JavaScript code server-side. 
+Node is useful for developing applications that require a persistent connection from the browser to the server 
+and is often used for real-time applications such as chat, news feeds and web push notifications.
+
+2)How is node js non-blocking?
+A non-blocking call in JavaScript provides a callback function that is to be called when the operation is complete.
+ Node. js internally uses operating system level polling in combination with worker threads for operations that do not support polling. 
+ Node then translates these mechanisms into JavaScript callbacks.
+
+ 3)What is throughput?
+
+4)How is Node js having high IO throughput?
+In its most basic form Node. js is best suited for this type of computing. 
+All I/O in Node. js is non-blocking and it allows other requests to be served while waiting for a particular read or write to complete.
+
+5)What are CPU intensive tasks?
+They are complex user actions that eat up more RAM. A few of such processes can shut down your server entirely. 
+Naturally, you want to make sure that your app or website is 'smart' enough to handle different kinds of tasks, for each individual user request.
+
+6)How can you end up blocking your main thread in node.js?
+The Main Thread is where the browser does most of the work needed to display a page. If we keep the Main Thread blocked, it can't perform its crucial tasks. 
+This leads to slow load times, unresponsive pages, and a bad user experience.
+
+7)What is the event loop?
+A JavaScript runtime uses a message queue, which is a list of messages to be processed. Each message has an associated function that gets called to handle the message.
+ At some point during the event loop, the runtime starts handling the messages on the queue, starting with the oldest one.
+
+ 8)What are different phases in event loop?
+The Event Loop contains six main phases: 
+timers, 
+I/O callbacks, 
+preparation / idle phase, 
+I/O polling, 
+setImmediate() callbacks execution, and 
+close events callbacks.
+
+9)What is process.tick?
+Every time the event loop takes a full trip, we call it a tick.
+ When we pass a function to process.nextTick() , we instruct the engine to invoke this function at the end of the current operation, 
+ before the next event loop tick starts: JS copy.
+
+ 10)When can process.tick starve your event loop?
+
+
+11)What is the difference between setTimeout and setInterval?
+setTimeout allows us to run a function once after the interval of time. 
+setInterval allows us to run a function repeatedly, starting after the interval of time, then repeating continuously at that interval
+
+
+12)How can you make a network request with http module from the backend?
+The most common HTTP request methods have a call shortcut (such as http. get and http. post), but you can make any type of HTTP request by setting the call field to http. 
+request and specifying the type of request using the method field.
+
+13)How can you create your own events?
+A custom event can be created using the CustomEvent constructor: 
+const myEvent = new CustomEvent("myevent", { detail: {}, bubbles: true, cancelable: true, composed: false, });
+ As shown above, creating a custom event via the CustomEvent constructor is similar to creating one using the Event constructor.
+
+ 14)What are clusters?
+Node. js runs single threaded programming, which is very memory efficient, but to take advantage of computers multi-core systems, 
+the Cluster module allows you to easily create child processes that each runs on their own single thread, to handle the load.
+
+15)How does your Node.js application handle scale? Elaborate
+The easiest thing to do to scale a big application is to clone it multiple times and have each cloned instance handle part of the workload (with a load balancer, for example). 
+This does not cost a lot in term of development time and it's highly effective. This strategy is the minimum you should do and Node.
+
+16)What is the difference between readFile and readFileSync?
+readFileSync() is synchronous and blocks execution until finished. These return their results as return values. 
+readFile() are asynchronous and return immediately while they function in the background. You pass a callback function which gets called when they finish.
+
+17)What are CORS? How do you configure them? Why do you need them?
+Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate 
+any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.
+...
+One of the allowed methods:
+GET.
+HEAD.
+POST.
+
+18)What is rate limiting?
+A rate limit is the maximum number of calls you want to allow in a particular time interval. 
+Setting rate limits enables you to manage the network traffic for your APIs and for specific operations within your APIs. 
+API Connect supports two types of rate limiting: Rate limit.
+
+
+19)How does middlewares work in express?
+Middleware functions are functions that have access to the request object ( req ), the response object ( res ), 
+and the next function in the application's request-response cycle. 
+The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware.
+
+
+20)What is the difference between Encryption and Hashing?
+Since encryption is two-way, the data can be decrypted so it is readable again.
+ Hashing, on the other hand, is one-way, meaning the plaintext is scrambled into a unique digest, through the use of a salt, that cannot be decrypted.
+
+
+ 21)What is the difference between https and http?
+HTTPS is HTTP with encryption. The only difference between the two protocols is that HTTPS uses TLS (SSL) to encrypt normal HTTP requests and responses.
+ As a result, HTTPS is far more secure than HTTP. A website that uses HTTP has http:// in its URL, while a website that uses HTTPS has https://.
+
+
+ 22)What is TLS?
+TLS Basics-- Transport Layer Security (TLS) encrypts data sent over the Internet to ensure that eavesdroppers and 
+hackers are unable to see what you transmit which is particularly useful for private and sensitive information 
+such as passwords, credit card numbers, and personal correspondence
+
+
+23)What is AES?
+The Advanced Encryption Standard (AES) is a symmetric block cipher chosen by the U.S. government to protect classified information. 
+AES is implemented in software and hardware throughout the world to encrypt sensitive data.
+ It is essential for government computer security, cybersecurity and electronic data protection.
+
+ 24)What is JWT Token? Why do we need to use JWT? What are some pros and cons?
+ It is a definitely a clever way to securely get the identity of the client.
+  In simple language there is a secret Key used to encrypt the JSON formatted Data which primarily includes the user-id. 
+  Now an encryption of data with the Key generates the token that is sent to the client and used in every request.
+
+25)What is salting? Where do we store salt?
+A salt is a random string that makes the hash unpredictable. Bcrypt is a popular and trusted method for salt and hashing passwords. 
+You have learned how to use bcrypt's NodeJS library to salt and hash a password before storing it in a database
+
+The easiest way is to put the salt in front of the password and hash the combined text string. 
+The salt is not an encryption key, so it can be stored in the password database along with the 
+username – it serves merely to prevent two users with the same password getting the same hash
+
+26)What is the difference between authorisation and Authentication?
+ Simply put, authentication is the process of verifying who someone is, 
+ whereas authorization is the process of verifying what specific applications, files, and data a user has access to.
+
+
+ 27)What is the difference between JS on the browser and node?
+Unlike the browser where Javascript is sandboxed for your safety, node. js has full access to the system like any other native application.
+ This means you can read and write directly to/from the file system, have unrestricted access to the network, can execute software and more
+
+ 28)What is V8?
+V8 is the name of the JavaScript engine that powers Google Chrome. 
+It's the thing that takes our JavaScript and executes it while browsing with Chrome. 
+V8 provides the runtime environment in which JavaScript executes. 
+The DOM, and the other Web Platform APIs are provided by the browser.
