@@ -1,0 +1,76 @@
+1)What is Caching? How can you save money with Caching?
+A cache's primary purpose is to increase data retrieval performance by 
+reducing the need to access the underlying slower storage layer. 
+Trading off capacity for speed, a cache typically stores a subset of data transiently, 
+in contrast to databases whose data is usually complete and durable.
+
+2)What is CAP Theorem?
+Load balancing is the process of distributing network traffic across multiple servers. 
+This ensures no single server bears too much demand. By spreading the work evenly, 
+load balancing improves application responsiveness. It also increases availability of applications and websites for users.
+
+
+3)What is CAP Theorem?
+The CAP theorem is a belief from theoretical computer science about distributed data stores that claims, 
+in the event of a network failure on a distributed database, it is possible to provide either consistency or availability—but not both.
+
+4)What is PACELC Theorem?
+In theoretical computer science, the PACELC theorem is an extension to the CAP theorem. It states that in case of network partitioning (P) in a distributed computer system, one has to choose between availability (A) and consistency (C) (as per the CAP theorem), but else (E), even when the system is running normally in the absence of partitions, one has to choose between latency (L) and consistency (C).
+
+5)What is Eventual Consistency?
+Eventual Consistency is a guarantee that when an update is made in a distributed database, that update will eventually be reflected in all nodes that store the data, resulting in the same response every time the data is queried.
+
+
+6)What is Strong Consistency?
+Strong consistency is one of the consistency models used in the domain of concurrent programming (e.g., in distributed shared memory, distributed transactions). The protocol is said to support strong consistency if: All accesses are seen by all parallel processes (or nodes, processors, etc.)
+
+7)What are the different types of databases?
+1) Centralized Database. It is the type of database that stores data at a centralized database system. ...
+2) Distributed Database. ...
+3) Relational Database. ...
+4) NoSQL Database. ...
+5) Cloud Database. ...
+6) Object-oriented Databases. ...
+7) Hierarchical Databases. ...
+8) Network Databases.
+
+8)What are message queues?
+Message queues allow different parts of a system to communicate and process operations asynchronously. A message queue provides a lightweight buffer which temporarily stores messages, and endpoints that allow software components to connect to the queue in order to send and receive messages.
+
+9)Which service by Amazon Web Services (AWS) can you use for Queues?
+
+10)What is Pub Sub ?
+The Publish/Subscribe pattern, also known as pub/sub, is an architectural design pattern that provides a framework for exchanging messages between publishers and subscribers. This pattern involves the publisher and the subscriber relying on a message broker that relays messages from the publisher to the subscribers.
+
+11)What are webhooks?
+A webhook is a lightweight API that powers one-way data sharing triggered by events. Together, they enable applications to share data and functionality, and turn the web into something greater than the sum of its parts. APIs and webhooks both allow different software systems to sync up and share information.
+
+12)What is Docker? Why do we use it?
+Docker is an open source containerization platform. It enables developers to package applications into containers—standardized executable components combining application source code with the operating system (OS) libraries and dependencies required to run that code in any environment.
+
+13)What is S3 Service in AWS?
+Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere.
+
+15)What is EC2 Instance in AWS?
+Amazon EC2 provides a wide selection of instance types optimized to fit different use cases. Instance types comprise varying combinations of CPU, memory, storage, and networking capacity and give you the flexibility to choose the appropriate mix of resources for your applications
+
+16)What is Cloudfront in AWS?
+CloudFront delivers your content through a worldwide network of data centers called edge locations. When a user requests content that you're serving with CloudFront, the request is routed to the edge location that provides the lowest latency (time delay), so that content is delivered with the best possible performance.
+
+17)What is Route 53 In AWS?
+Amazon Route 53 effectively connects user requests to infrastructure running in AWS – such as Amazon EC2 instances, Elastic Load Balancing load balancers, or Amazon S3 buckets – and can also be used to route users to infrastructure outside of AWS.
+
+18)What are ELBs in AWS?
+Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets and virtual appliances in one or more Availability Zones (AZs). Application Load Balancer.
+
+19)What is TLS?
+TLS Basics. Transport Layer Security (TLS) encrypts data sent over the Internet to ensure that eavesdroppers and hackers are unable to see what you transmit which is particularly useful for private and sensitive information such as passwords, credit card numbers, and personal correspondence.
+
+20)What is the difference HTTPS vs HTTP?
+HTTPS is HTTP with encryption. The only difference between the two protocols is that HTTPS uses TLS (SSL) to encrypt normal HTTP requests and responses. As a result, HTTPS is far more secure than HTTP.
+
+21)What is a reverse proxy?
+A reverse proxy ultimately forwards user/web browser requests to web servers. However, the reverse proxy server protects the web server's identity. This type of proxy server also moves requests strategically on behalf of web servers, typically to help increase performance, security, and reliability.
+
+
+
