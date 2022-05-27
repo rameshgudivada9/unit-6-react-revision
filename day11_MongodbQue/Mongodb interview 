@@ -1,0 +1,137 @@
+
+1)What are SQL Databases? What are some companies that use Mongo, what type of applications are these?
+
+The Structured Query Language (SQL) is the standard user and application program interface for a relational database. 
+There are various simple operations that can be applied over the table which makes these databases easier to extend, 
+join two databases with a common relation and modify all existing applications
+companies:
+eBay. --eBay is a multinational company that provides a platform for the customer to customer sales. ...
+MetLife. --MetLife is a leading company in employee benefit programs, annuities, and insurance. ...
+Shutterfly. ...
+Aadhar. ...
+EA.
+
+MongoDB is widely used across various web applications as the primary data store. One of the most popular web development stacks, the MEAN stack employs MongoDB as the data store (MEAN stands for MongoDB, ExpressJS, AngularJS, and NodeJS).
+
+
+2)What are NoSQL Databases? What are some companies that use Mongo, what type of applications are these?
+
+NoSQL databases store data in documents rather than relational tables. Accordingly, we classify them as "not only SQL" and subdivide them by a variety of flexible data models. Types of NoSQL databases include pure document databases, key-value stores, wide-column databases, and graph databases.
+
+Microsoft.
+NTT Data.
+Cognizant.
+Dell.
+Accenture.
+Stack Overflow.
+
+NoSQL databases can be broken down into four types, there is key- value store databases, column-orientated databases, document store database and last graph-based databases. These DBMS's or database management systems are more focused on the performance, reliability and consistency of the database.
+
+
+3)What is the difference between SQL and NoSQL databases?
+
+SQL databases are vertically scalable, while NoSQL databases are horizontally scalable. SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores. SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON.
+
+
+4)What are some features of MongoDB?
+1. Document Oriented · 
+2. Schema-less Database · 
+3. Scalability · 
+4. Indexing · 
+5. Aggregation · 
+6. High Performance.
+
+
+5)What are aggregate queries?
+An aggregate query is a method of deriving group and subgroup data by analysis of a set of individual data entries. The term is frequently used by database developers and database administrators.
+
+6)What are pipelines in aggregation?
+An aggregation pipeline consists of one or more stages that process documents: Each stage performs an operation on the input documents. For example, a stage can filter documents, group documents, and calculate values. The documents that are output from a stage are passed to the next stage.
+
+7)How do you do aggregate queries?
+Instructions on How to Create an Aggregate Function Query in Access. To create a summary query using aggregate functions in Access, open the query in design view and add the fields needed for grouping, the fields to calculate for each grouping, and any fields needed for criteria purposes, in that order.
+
+
+8)How can you group by a particular value in MongoDB?
+We can group by single as well as multiple field from the collection, we can use $group operator in MongoDB to group fields from the collection and returns the new document as result. We are using $avg, $sum, $max, $min, $push, $last, $first and $addToSet operator with group by in MongoDB.
+
+9)How can you paginate on MongoDB?
+
+
+10)How can you sort in MongoDB?
+To sort documents in MongoDB, you need to use sort() method. The method accepts a document containing a list of fields along with their sorting order. To specify sorting order 1 and -1 are used. 1 is used for ascending order while -1 is used for descending order.
+
+11)What is indexing in MongoDB? Why do we need to use indexing? What are pros and cons for indexing?
+Indexing is a way to optimize the performance of a database by minimizing the number of disk accesses required when a query is processed. It is a data structure technique which is used to quickly locate and access the data in a database. Indexes are created using a few database columns.
+To find rows matching a WHERE clause in a query.
+To eliminate rows from consideration.
+To retrieve rows from other tables when JOINS are part of a query and where the columns being searched are of similar type and size.
+To find min and max values in a column.
+To sort or group results.
+
+
+12)Write the query for indexing a field in MongoDB?
+Indexes can be created by using the createIndex method. Indexes can be created on just one field or multiple field values. Indexes can be found by using the getIndexes method. Indexes can be removed by using the dropIndex for single indexes or dropIndexes for dropping all indexes
+
+
+13)What is the improvement in performance in MongoDB?
+Other ways to improve MongoDB performance after identifying your major query patterns include: Storing the results of frequent sub-queries on documents to reduce read load. Making sure that you have indices on any fields you regularly query against. Looking at your logs to identify slow queries, then check your indices.
+
+
+14)What is the data structure used for indexing?
+B-trees are the most commonly used data structures for indexes as they are time-efficient for lookups, deletions, and insertions. All these operations can be done in logarithmic time. Data that is stored inside of a B-tree can be sorted.
+
+
+15)Are values sorted in indexes?
+
+Sorting is the process or arranging items in a set in a specific order. Sorting a table would create a copy of the table in which the rows may have a different order than the original. What is Indexing? Indexing is a method that is used to improve the data retrieval speed in a table of a database.
+
+16)What are Replica Sets in MongoDB?
+A replica set in MongoDB is a group of mongod processes that maintain the same data set. Replica sets provide redundancy and high availability, and are the basis for all production deployments. This section introduces replication in MongoDB as well as the components and architecture of replica sets.
+
+17)Explain the structure of ObjectID in MongoDB.
+An ObjectId in MongoDB is a 12-byte BSON type. In the 12-byte structure, the first 4 bytes of the ObjectId represent the time in seconds since the UNIX epoch. The next 3 bytes of the ObjectId represent the machine identifier. The next 2 bytes of the ObjectId represent the process ID
+
+
+18)By default, which index is created by MongoDB for every collection?
+When creating documents in a collection, MongoDB creates a unique index using the _id field. 
+MongoDB refers to this as the Default _id Index.
+
+
+19)In which format MongoDB represents document structure?
+In MongoDB, data is stored as documents. These documents are stored in MongoDB in JSON (JavaScript Object Notation) format.
+
+
+20)What is the limitation of a document in MongoDB?
+The maximum BSON document size is 16 megabytes. The maximum document size helps ensure that a single document cannot use excessive amount of RAM or, during transmission, excessive amount of bandwidth. To store documents larger than the maximum size, MongoDB provides the GridFS API.
+
+21)What is the difference between MongoDB and Redis database?
+MongoDB is a document-oriented, disk-based database optimized for operational simplicity, schema-free design and very large data volumes. Redis is an in-memory, persistent data structure store that enables developers to perform common operations with minimal complexity and maximum performance.
+
+
+22)How can you add references between multiple collections?
+In MongoDB, we can combine data of multiple collections into one through the $lookup aggregation stage. In this, you have to specify which collection you want to join with the current collection and select the field that matches in both the collection.
+
+23)What are lookup in aggregation for MongoDB?
+js. The $lookup operator is an aggregation operator or an aggregation stage, which is used to join a document from one collection to a document of another collection of the same database based on some queries. Both the collections should belong to the same databases
+
+
+24)What are graph lookups?
+graphLookup allows us to recursively traverse a graph structure represented in documents. $ graphLookup has the following form. Let's go over the parameters. Since it's a lookup operation, we specify the collection where we want to perform the graph search using the from field.
+
+
+25)What is the alternative for lookups for SQL?
+
+26)How can you do one to many relation in MongoDB?
+One-To-Many (1:N) The 1:N relationship describes a relationship where one side can have more than one relationship while the reverse relationship can only be single sided. An example is a Blog where a blog might have many Comments but a Comment is only related to a single Blog.
+
+
+27)How can you do many to many relation in MongoDB?
+Many-To-Many (N:M) An N:M relationship is an example of a relationship between two entities where they both might have many relationships between each other. An example might be a Book that was written by many Authors. At the same time an Author might have written many Books.
+
+28)How can you do one to zillion relation in MongoDB?
+
+
+
+
+
