@@ -1,0 +1,11 @@
+
+.table{
+    border: 1px solid black;
+}
+.table thead tr th{
+    border: 1px solid black;
+
+}
+.table tbody tr td{
+    border: 1px solid black;
+}

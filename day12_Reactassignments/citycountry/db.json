@@ -1,0 +1,40 @@
+{
+  "cities": [
+    {
+      "COUNTRY": "INDIA",
+      "CITY": "DELHI",
+      "POPULATION": "19,000,000",
+      "id": 2
+    },
+    {
+      "COUNTRY": "Australia",
+      "CITY": "sidney",
+      "POPULATION": "300000",
+      "id": 2
+    },
+    {
+      "COUNTRY": "srilanka",
+      "CITY": "columbo",
+      "POPULATION": "5,600,000",
+      "id": 2
+    },
+    {
+      "COUNTRY": "USA",
+      "CITY": "Chicago",
+      "POPULATION": "2,920,000",
+      "id": 2
+    },
+    {
+      "COUNTRY": "Russia",
+      "CITY": "mascow",
+      "POPULATION": "1834234",
+      "id": 2
+    },
+    {
+      "COUNTRY": "china",
+      "CITY": "BeiGing",
+      "POPULATION": "2314000",
+      "id": 2
+    }
+  ]
+}
