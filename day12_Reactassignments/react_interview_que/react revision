@@ -1,0 +1,124 @@
+1)Explain redux to a 5 year old (ELI5)
+Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.
+
+
+2)how is redux different from context API?
+ We learned, Context API is a light-weight solution which is more suited for passing data from a parent to a deeply nested child and 
+ Redux is a more robust State Management solution.
+
+
+ 3)what does useSelector do?
+useSelector is a function that takes the current state as an argument and returns whatever data you want from it. It's very similiar to mapStateToProps() and it allows you to store the return values inside a variable within the scope of you functional components instead of passing down as props.
+
+4)What is immutability in React?
+Immutability is a concept that React programmers need to understand. 
+An immutable value or object cannot be changed, so every update creates new value, leaving the old one untouched.
+
+5)Why do we need to spread the state in redux?
+state the idea is simple: Keep the old state and add or overwrite the DateSucess property. If you don't use spread the new value of state would be only DateSucess and you would lose the foo and zip value, using spread you are just overwriting DateSucess keeping the rest of the value untouched.
+
+6)What does Object.freeze() do?
+freeze() which is used to freeze an object. 
+Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. 
+Object. freeze() preserves the enumerability, configurability, writability and the prototype of the object.
+
+7)Why is immutability required by Redux?
+Immutability of redux state is necessary since it allows detecting redux state changes in an efficient manner. 
+This implies that whenever we want to modify a redux state, we must create a new copy of it and do modifications to that copy - which then becomes the new redux state.
+
+8)How does Redux use shallow equality checking?
+creates a reference to the current state slice referred to by each key;
+calls the appropriate reducer and passes it the slice;
+creates a reference to the possibly-mutated state slice that's returned by the reducer.
+
+
+9)How well does Redux “scale” in terms of performance and architecture?
+In fact, React Redux in particular is heavily optimized to cut down on unnecessary re-renders, and React-Redux v5 shows noticeable improvements over earlier versions. Redux may not be as efficient out of the box when compared to other libraries.
+
+10)How does Redux compare to the React Context API?
+Context is great for sharing trivial pieces of state between components. Redux is much more powerful and provides a set of handy features that Context doesn't have. It's great for managing centralized state and handling API requests.
+
+11)What is JSX?
+JSX stands for JavaScript XML. JSX allows us to write HTML in React. JSX makes it easier to write and add HTML in React.
+JSX is a React extension to the JavaScript language syntax which provides a way to structure component rendering using syntax familiar to many developers.
+
+12)What is Conditional Rendering?
+Conditional rendering is a term to describe the ability to render different user interface (UI) markup if a condition is true or false. In React, it allows us to render different elements or components based on a condition. This concept is applied often in the following scenarios: Rendering external data from an API.
+
+13)What is treeshaking ?
+Tree Shaking is a concept in development of eliminating dead code or unused code. Imagine your application as a tree. All the libraries, components, widgets & code represents leaves. All the unused code, imports & dead code represents the dead brown leaves.
+
+14)what is Webpack?
+Webpack is a free and open-source module bundler for JavaScript. It is made primarily for JavaScript, but it can transform front-end assets such as HTML, CSS, and images if the corresponding loaders are included. Webpack takes modules with dependencies and generates static assets representing those modules.
+
+15)What are some features of using webpack?
+Webpack gives you control over how to treat different assets it encounters. For example, you can decide to inline assets to your JavaScript bundles to avoid requests. Webpack also allows you to use techniques like CSS Modules to couple styling with components, and to avoid issues of standard CSS styling.
+
+16)What are Controlled and Uncontrolled components?
+Controlled component is component that get the changed value from the callback function and uncontrolled component is component that have the one from the DOM. For example, When input value is changed,we can use onChange function in Controlled Component and also we can get the value using DOM like ref.
+
+17)What is flux architecture?
+Flux is the application architecture that Facebook uses for building client-side web applications. It complements React's composable view components by utilizing a unidirectional data flow. It's more of a pattern rather than a formal framework, and you can start using Flux immediately without a lot of new code.
+
+18)What does React.useCallback do?
+The React useCallback Hook returns a memoized callback function. Think of memoization as caching a value so that it does not need to be recalculated. This allows us to isolate resource intensive functions so that they will not automatically run on every render.
+
+19)What does React.memo mean?
+React. memo is a higher order component. If your component renders the same result given the same props, you can wrap it in a call to React. memo for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
+
+20)What is Higher-order Components?
+A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React's compositional nature. Concretely, a higher-order component is a function that takes a component and returns a new component.
+
+21)What are keys in React? Why are keys important?
+A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used to React to identify which items in the list are changed, updated, or deleted. In other words, we can say that keys are used to give an identity to the elements in the lists.
+
+22)What is reconciliation?
+React provides a declarative API so that you don't have to worry about exactly what changes on every update. This makes writing applications a lot easier, but it might not be obvious how this is implemented within React.
+
+23)Explain life cycle diagram with hooks?
+https://wavez.github.io/react-hooks-lifecycle/
+
+
+24)What does the cleanup function in useEffect do?
+What is the useEffect cleanup function? Just like the name implies, the useEffect cleanup is a function in the useEffect Hook that allows us to tidy up our code before our component unmounts. When our code runs and reruns for every render, useEffect also cleans up after itself using the cleanup function.
+
+25)What are the rules of hooks?
+Rules of Hooks
+Don't call Hooks inside loops, conditions, or nested functions. ...
+Don't call Hooks from regular JavaScript functions. ...
+You can skip to the next page explaining how to write your own Hooks now. ...
+This is why Hooks must be called on the top level of our components.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
