@@ -1,0 +1,15 @@
+
+
+        .main{
+            margin: auto;
+            width: 20%;
+        }
+.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
+.mapouter{
+    margin: auto;
+    margin-top: 30px;
+    background-image: url("https://24wallpapers.com/app-gateway/wallpaper-uploads/wallpapers/22_01_2022/1642843469383_9.png");
+    background-position: center;
+
+    
+}
