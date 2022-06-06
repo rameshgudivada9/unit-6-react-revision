@@ -6,6 +6,21 @@ export const Display=({props})=>{
 
     return(
         <div>
+            <div>
+                <select>
+                    <option value="">sort by price</option>
+                    <option value="decending">Big to small</option>
+                    <option value="ascending">small to big</option>
+                </select>
+                <select name="" id="">
+                    <option value="">Filter by brand</option>
+                    <option value="gucci">gucci</option>
+                    <option value="black">black color</option>
+                </select>
+            </div>
+            <div>
+                
+            </div>
         <div className="main">
     {props.map((el,i)=>{
         return (
