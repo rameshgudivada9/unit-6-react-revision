@@ -1,8 +1,8 @@
 .main{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat();
-    flex-direction: row;
+    grid-template-columns: repeat(2,1fr);
+    margin: 30px;
+   
 }
 .main img{
     width: 50%;
