@@ -21,10 +21,10 @@ function App() {
 
    getdata()
   },[])
-console.log(newdata[0])
+console.log(newdata)
   return (
     <div className="App">
-      <Display props={getdata}/>
+      <Display props={newdata}/>
     </div>
   );
 }

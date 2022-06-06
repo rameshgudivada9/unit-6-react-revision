@@ -1,19 +1,26 @@
+import "./display.css"
 
+export const Display=({props})=>{
 
-export const Display=(props)=>{
-
-    
+    console.log(props)
 
     return(
-        <>
-    {props.newdata.map((el,i)=>
-            <div>
-<div>
-    
-</div>
-            </div>
         
-    )}
-        </>
+        <div className="main">
+    {props.map((el,i)=>{
+        return (
+            <div key={i} >
+                <div><img src={el.img}/></div>
+                <div>{el.name}</div>
+                <div>{el.colorName}</div>
+                <div>Rs-{el.finalPrice}</div>
+                <div>{el.size}</div>
+                
+            </div>
+        )
+    })
+}
+</div>
+        
     )
 }
