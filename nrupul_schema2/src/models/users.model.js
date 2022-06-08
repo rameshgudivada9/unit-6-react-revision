@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
-
 const userSchema = new mongoose.Schema (
     {  
-      
        name:{type:String},
        email:{type:String,required:true,unique:true},
        addresses:[
@@ -13,8 +11,6 @@ const userSchema = new mongoose.Schema (
                state:{type:String},
                pin_code:{type:Number},
                country:{type:String,default:"india"}
-
-
            }
         ]
     },
