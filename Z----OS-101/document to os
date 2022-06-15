@@ -1,0 +1,69 @@
+
+
+
+Q1)Explain what is Loose Coupling and Tight Coupling. Also show the examples of code having tight coupling and 
+how you can make it loosely coupled.?
+
+ what is Loose Coupling 
+ Loose coupling is achieved by means of a design that promotes single-responsibility and separation of concerns. 
+ A loosely-coupled class can be consumed and tested independently of other classes.
+
+ // Java program to illustrate // loose coupling concept class Volume
+{
+    public static void main(String args[]) {
+    Box b = new Box(5,5,5);
+    System.out.println(b.getVolume()); }
+    }
+    final class Box {
+    private int volume;
+    Box(int length, int width, int height) {
+    this.volume = length * width * height; }
+    public int getVolume() {
+    return volume;
+    } }
+
+
+
+ Tight coupling :
+ In general, Tight coupling means the two classes often change together. 
+ In other words, if A knows more than it should about the way in which B was implemented, then A and B are tightly coupled.
+ Example : If you want to change the skin, you would also have to change the design of your body as well because 
+ the two are joined together – they are tightly coupled. The best example of tight coupling is RMI(Remote Method Invocation).
+
+// Java program to illustrate // tight coupling concept class Volume
+{
+public static void main(String args[]) {
+Box b = new Box(5,5,5);
+System.out.println(b.volume); }
+}
+class Box {
+public int volume;
+Box(int length, int width, int height) {
+this.volume = length * width * height; }
+}
+
+
+Q2)What is High cohesion and how is it helpful?
+
+In object-oriented programming, if the methods that serve a class tend to be similar in many aspects, 
+then the class is said to have high cohesion. In a highly cohesive system, code readability and reusability is increased,
+ while complexity is kept manageable.
+
+
+ Q3 State KISS and YAGNI principle.
+ KISS: Keep It Simple, Stupid
+The KISS principle is descriptive to keep the code simple and clear,making it easy to understand. 
+After all, programming languages are for humans to understand — computers can only understand 0 and 1 — 
+so keep coding simple and straightforward. Keep your methods small. Each method should never be more than 40-50 lines.
+
+YAGNI stands for You Ain’t Gonna Need It. It’s a principle from software development methodology of Extreme Programming (XP). 
+This principle says that you should not create features that it’s not really necessary.
+This principle it’s similar to the KISS principle, once that both of them aim for a simpler solution. 
+The difference between them it’s that YAGNI focus on removing unnecessary functionality and logic, and KISS focus on the complexity.
+
+
+
+
+
+
+
