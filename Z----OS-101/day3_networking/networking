@@ -1,0 +1,49 @@
+
+Q.1} Explain what HTTP is and how it is Unidirectional?
+HTTP
+Stands for "Hypertext Transfer Protocol." HTTP is the protocol used to transfer data over the web. 
+It is part of the Internet protocol suite and defines commands and services used for transmitting webpage data. 
+HTTP uses a server-client model. A client, for example, may be a home computer, laptop, or mobile device.
+The HTTP server is typically a web host running web server software, such as Apacheor IIS. 
+When you access a website, your browser sends a request to the corresponding web server and it responds with an HTTP status code. 
+If the URL is valid and the connection is granted, the server will send your browser the webpage and related files.
+
+HTTP protocol: 
+HTTP is unidirectional where the client sends the request and the server sends the response.
+
+Some common HTTP status codes include:
+1. 200 - successful request (the webpage exists)
+2. 401 - unauthorized request (authorization required)
+3. 500 - internal server error (often caused by an incorrect server configuration)
+NOTE: URLs that begin with "http://" are accessed over the standard hypertext transfer protocol and use port 80 by default.
+
+Q.2} What is IPv4 and IPv6?
+IPv4 is a version 4 of IP. It is a current version and the most commonly used IP address. 
+It is a 32-bit address written in four numbers separated by 'dot', i.e., periods. 
+This address is unique for each device.For example, 66.94.29.13
+
+IPv6 is the next generation of IP addresses. The main difference between IPv4 and IPv6 is the address size of IP addresses. 
+The IPv4 is a 32-bit address, whereas IPv6 is a 128-bit hexadecimal address.
+IPv6 provides a large address space, and it contains a simple header as compared to IPv4.
+
+
+Q3}What is DNS?
+The Domain Name System (DNS) is the phonebook of the Internet. Humans access information online through domain names, like nytimes.com or espn.com. Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses so browsers can load Internet resources.Each device connected to the Internet has a unique IP address which other machines use to find the device. DNS servers eliminate the need for humans to memorize IP addresses such as 192.168.1.1 (in IPv4), or more complex newer alphanumeric IP addresses such as 2400:cb00:2048:1::c629:d7a2 (in IPv6).
+
+
+Q.4} Explain what CDN is ?
+CDN (Computer Delivery Network) is a system of distributed servers that deliver web pages and other web content to a user based on the geographic locations of the user, the origin of the webpage and a content delivery server.Suppose I am running the website outside the UK and I am serving the website all around the world. When the user wants to access my website, then they request to the web server, and users from different countries will have different latency. For example, People who live in Australia will have more latency than those who stay in India.Key Terminology of CloudFront CDN
+Edge Location: Edge location is the location where the content will be cached. Origin: It defines the origin of all the files that CDN will distribute.
+
+
+Q.5} What is a DeadLock?
+
+A deadlock is a situation in which two computer programs sharing the same resource are effectively preventing each other from accessing the resource, resulting in both programs ceasing to function. The earliest computer operating systems ran only one program at a time.
+
+
+
+
+
+
+
+
