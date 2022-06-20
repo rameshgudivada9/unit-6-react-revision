@@ -1,0 +1,188 @@
+Q1.a)Difference between tight coupling and loose coupling.
+
+ans)loose coupling:
+When two classes, modules, or components have low dependencies on each other, it is called loose coupling. 
+Loose coupling  means that the classes are independent of each other. 
+The only knowledge one class has about the other class is what the other class has exposed through its interfaces in loose coupling. 
+
+example:
+
+ class Volume {
+
+   public static void main(String args[]) {
+
+        Cylinder b = new Cylinder(25, 25, 25);
+
+           System.out.println(b.getVolume());
+
+   }
+
+}
+
+final class Cylinder {
+
+    private int volume;
+
+    Cylinder(int length, int width, int height) {
+
+             this.volume = length * width * height;
+
+    }
+
+    public int getVolume() {
+
+             return volume;
+
+    }
+
+}
+
+
+
+Tight Coupling:
+When two classes are highly dependent on each other, it is called tight coupling. 
+It occurs when a class takes too many responsibilities or where a change in one class requires changes in the other class.
+ In tight coupling, an object (parent object) creates another object (child object) for its usage. 
+ If the parent object knows more about how the child object was implemented, we can say that the parent and child object are tightly coupled.
+
+ example:
+ class Volume {
+
+    public static void main(String args[]) {
+ 
+         Cylinder b = new Cylinder(15, 15, 15);
+ 
+            System.out.println(b.volume);
+ 
+    }}
+ 
+  class Cylinder {
+ 
+    public int volume;
+ 
+    Cylinder(int length, int width, int height) {
+ 
+            this.volume = length * width * height;  }}
+
+
+
+b) What is the Difference between High Cohesion and Low Cohesion? Also provide Examples.
+
+A)High Cohesion:
+
+Cohesion often refers to how the elements of a module belong together. 
+Related code should be close to each other to make it highly cohesive.
+A module with high cohesion contains elements that are tightly related to each other and united in their purpose. 
+For example, all the methods within a User class should represent the user behavior.
+
+getName()
+setName(newName)
+getEmailAddress()
+setEmailAddress(newEmail)
+
+B)Low Cohesion:
+Low cohesion would mean that the code that makes up some functionality is spread out all over your code-base. 
+Not only is it hard to discover what code is related to your module, it is difficult to jump between different modules and keep track of all the code in your head.
+
+getName()
+setName(newName)
+getEmailAddr()
+setEmailAddr(newEmail)
+validateEmailAddr(newEmail)
+sendEmail();
+
+Q2 a) Explain DRY principle and how can we achieve it?
+A)
+DRY, which stands for 'don't repeat yourself,
+' is a principle of software development that aims at reducing the repetition of patterns and 
+code duplication in favor of abstractions and avoiding redundancy.
+
+To avoid violating the DRY principle, divide your system into pieces. 
+Divide your code and logic into smaller reusable units and use that code by calling it where you want.
+ Don't write lengthy methods, but divide logic and try to use the existing piece in your method.
+
+
+ b) Explain the KISS principle with Example.
+
+The KISS principle (or Keep It Simple, Stupid) states that most systems work best if they are kept simple rather than made overly complicated. 
+When building a product, designing a website, creating an app, or engineering a block of code, strive for simplicity.
+After all, programming languages are for humans to understand — computers can only understand 0 and 1 — so keep coding simple and straightforward.
+
+public String weekday1(int day) { 
+    switch (day) {
+        case 1: 
+        return "Monday"; 
+        case 2: 
+        return "Tuesday"; 
+        case 3: 
+        return "Wednesday"; 
+        case 4: 
+        return "Thursday"; 
+        case 5: 
+        return "Friday"; 
+        case 6: 
+        return "Saturday"; 
+        case 7: 
+        return "Sunday";
+    default:
+    throw new InvalidOperationException("day must be in range 1 to 7");
+    } }
+    public String weekday2(int day) {
+    if ((day < 1) || (day > 7)) throw new InvalidOperationException("day must be in range 1 to 7");
+    string[] days = { "Monday", "Tuesday",
+    "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+    };
+    return days[day - 1]; }
+
+
+
+Q3 What is Pessimistic Locking and Optimistic Locking?
+
+Optimistic Locking:
+The optimistic locking model, also referred to as optimistic concurrency control, 
+is a concurrency control method used in relational databases that does not use record locking. 
+Optimistic locking allows multiple users to attempt to update the same record without informing the users that others are also attempting to update the record. 
+
+Pessimistic Locking:
+The pessimistic locking model prevents simultaneous updates to records. 
+As soon as one user starts to update a record, a lock is placed on it. 
+Other users who attempt to update this record are informed that another user has an update in progress. 
+The other users must wait until the first user has finished committing their changes, thereby releasing the record lock. 
+
+
+
+Q4. What is a DeadLock ? And what are methods by which we can handle deadLock.
+A deadlock is a situation in which more than one process is blocked because it is holding a resource and also requires some resource that is acquired by some other process. Therefore, none of the processes gets executed.
+The first two methods are used to ensure the system never enters a deadlock.
+
+Deadlock Prevention
+This is done by restraining the ways a request can be made. Since deadlock occurs when all the above four conditions are met, we try to prevent any one of them, thus preventing a deadlock.
+
+Deadlock Avoidance
+When a process requests a resource, the deadlock avoidance algorithm examines the resource-allocation state. If allocating that resource sends the system into an unsafe state, the request is got granted.
+
+Therefore, it requires additional information such as how many resources of each type is required by a process. If the system enters into an unsafe state, it has to take a step back to avoid deadlock.
+
+Deadlock Detection and Recovery
+We let the system fall into a deadlock and if it happens, we detect it using a detection algorithm and try to recover.
+
+
+
+Q5)What is a HTTP protocol? Difference between HTTP and HTTPS.
+HTTP stands for Hypertext Transfer Protocol, and it is a protocol – or a prescribed order and syntax for presenting information – used for transferring data over a network. 
+Most information that is sent over the Internet, including website content and API calls, uses the HTTP protocol.
+ There are two main kinds of HTTP messages: requests and responses.
+
+ Some common HTTP status codes include:
+1. 200 - successful request (the webpage exists)
+2. 401 - unauthorized request (authorization required)
+3. 500 - internal server error (often caused by an incorrect server configuration)
+
+
+HTTPS
+The S in HTTPS stands for "secure." HTTPS uses TLS (or SSL) to encrypt HTTP requests and responses,
+ so in the example above, instead of the text, an attacker would see a bunch of seemingly random characters.
+
+ All HTTP requests and responses are then encrypted with these session keys, so that anyone who intercepts communications can only see a random string of characters, not the plaintext.
+
+
