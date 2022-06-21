@@ -1,0 +1,58 @@
+Q1.Explain 3-Tier Architecture
+A)3-tier architecture has three different layers. 
+Presentation layer (front end) View 
+Business Logic layer (application layer : Java, Python etc.) Controller(delegation) + Service
+Database layer (SQL, NoSQL, JSON, CSV, file system) Model
+
+Interceptor: Performs checks
+You → Interceptor (perform check) → deleteAllUsers 
+You → API gateway → APIs
+
+Q2. Explain Basic Terminologies
+A)
+1)Replication : 
+Replication refers to frequently copying the data across multiple machines. 
+Post replication, multiple copies of the data exists across machines. 
+This might help in case one or more of the machines die due to some failure.
+
+2)Consistency: 
+Assuming you have a storage system which has more than one machine, 
+consistency implies that the data is same across the cluster, so you can read or write to/from any node and get the same data.
+
+3)Eventual consistency : 
+Exactly what the name suggests. In a cluster, if multiple machines store the same data, 
+an eventual consistent model implies that all machines will have the same data eventually. 
+Its possible that at a given instance, those machines have different versions of the same data ( temporarily inconsistent ) but 
+they will eventually reach a state where they have the same data.
+
+4)Availability: 
+In the context of a database cluster, Availability refers to the ability to always respond to queries ( read or write ) 
+irrespective of nodes going down.
+
+5)Sharding : 
+With most huge systems, data does not fit on a single machine. 
+In such cases, sharding refers to splitting the very large database into smaller, faster and more manageable parts called data shards.
+
+Q3.What is CAP Theorem
+It states that in a distributed system, it is impossible to simultaneously guarantee all of the following:
+Consistency Availability Partition Tolerance
+That is, any distributed system guarantees any two of the three stated later.
+Consistency (all nodes see the same data at the same time)
+Availability (a guarantee that every request receives a response about whether it was successful or failed)
+Partition Tolerance (the system continues to operate despite arbitrary message loss or failure of a part of the system).
+
+BASE (basically available, soft state, and eventually consistent) 
+implies the database will, at some point, classify and index the content to improve the findability/discoverability of data or information contained in the text or the object.
+More on BASE during the introduction to NoSQL.
+
+Q4. What are Public and Private Keys? How are they used in Cryptography?
+Both terms are commonly used for encryption and decryption. 
+So, it is very important to know about both keys and the difference between them.
+Public key
+It is an encryption technique that uses a pair of keys (public and private key) for secure data communication. 
+In the pair of keys, the public key is for encrypting the plain text to convert it into ciphertext,
+ and the private key is used for decrypting the ciphertext to read the message.
+ The private key is given to the receiver while the public key is provided to the public. 
+ Public Key Cryptography is also known as asymmetric cryptography.
+
+ 
