@@ -1,0 +1,256 @@
+
+Q) Explain below listed principles with examples among SOLID principles.
+
+S: Single-responsibility principle:::
+
+A class should have one and only one reason to change, meaning that a class should have only one job. 
+For example, consider an application that takes a collection of shapes—circles,
+ and squares—and calculates the sum of the area of all the shapes in the collection.
+
+ For squares, you will need to know the length of a side:
+ class Square
+{
+    public $length;
+
+    public function construct($length)
+    {
+        $this->length = $length;
+    }
+}
+
+For circles, you will need to know the radius:
+class Circle
+{
+    public $radius;
+
+    public function construct($radius)
+    {
+        $this->radius = $radius;
+    }
+}
+
+
+Next, create the AreaCalculator class and then write up the logic to sum up the areas of all provided shapes. 
+The area of a square is calculated by length squared. 
+The area of a circle is calculated by pi times radius squared.
+
+class AreaCalculator
+{
+    protected $shapes;
+
+    public function __construct($shapes = [])
+    {
+        $this->shapes = $shapes;
+    }
+
+    public function sum()
+    {
+        foreach ($this->shapes as $shape) {
+            if (is_a($shape, 'Square')) {
+                $area[] = pow($shape->length, 2);
+            } elseif (is_a($shape, 'Circle')) {
+                $area[] = pi() * pow($shape->radius, 2);
+            }
+        }
+
+        return array_sum($area);
+    }
+
+    public function output()
+    {
+        return implode('', [
+          '',
+              'Sum of the areas of provided shapes: ',
+              $this->sum(),
+          '',
+      ]);
+    }
+}
+
+To use the AreaCalculator class, you will need to instantiate the class and pass in an array of shapes and display the output at the bottom of the page.
+
+Here is an example with a collection of three shapes:
+
+a circle with a radius of 2
+a square with a length of 5
+a second square with a length of 6
+
+
+$shapes = [
+  new Circle(2),
+  new Square(5),
+  new Square(6),
+];
+
+$areas = new AreaCalculator($shapes);
+
+echo $areas->output();
+
+
+
+● O: Open-closed principle:::
+
+Open-closed Principle (OCP) states:Objects or entities should be open for extension but closed for modification.
+
+This means that a class should be extendable without modifying the class itself.
+
+Let’s revisit the AreaCalculator class and focus on the sum method:
+class AreaCalculator
+{
+    protected $shapes;
+
+    public function __construct($shapes = [])
+    {
+        $this->shapes = $shapes;
+    }
+
+    public function sum()
+    {
+        foreach ($this->shapes as $shape) {
+            if (is_a($shape, 'Square')) {
+                $area[] = pow($shape->length, 2);
+            } elseif (is_a($shape, 'Circle')) {
+                $area[] = pi() * pow($shape->radius, 2);
+            }
+        }
+
+        return array_sum($area);
+    }
+}
+
+A way you can make this sum method better is to remove the logic to calculate the area of each shape out of the AreaCalculator class method and attach it to each shape’s class.
+
+Here is the area method defined in Square:
+
+class Square
+{
+    public $length;
+
+    public function __construct($length)
+    {
+        $this->length = $length;
+    }
+
+    public function area()
+    {
+        return pow($this->length, 2);
+    }
+}
+
+
+And here is the area method defined in Circle:
+
+class Circle
+{
+    public $radius;
+
+    public function construct($radius)
+    {
+        $this->radius = $radius;
+    }
+
+    public function area()
+    {
+        return pi() * pow($shape->radius, 2);
+    }
+}
+
+The sum method for AreaCalculator can then be rewritten as:
+
+    class AreaCalculator
+{
+    // ...
+
+    public function sum()
+    {
+        foreach ($this->shapes as $shape) {
+            $area[] = $shape->area();
+        }
+
+        return array_sum($area);
+    }
+}
+
+
+
+
+● I: Interface segregation principle:::
+
+A client should never be forced to implement an interface that it doesn’t use, 
+or clients shouldn’t be forced to depend on methods they do not use.
+
+
+Let’s consider what would happen if you were to modify the ShapeInterface to add another contract:
+    interface ShapeInterface
+{
+    public function area();
+
+    public function volume();
+}
+
+This would violate the interface segregation principle. 
+Instead, you could create another interface called ThreeDimensionalShapeInterface that has the volume contract and three-dimensional shapes can implement this interface:
+
+interface ShapeInterface
+{
+    public function area();
+}
+
+interface ThreeDimensionalShapeInterface
+{
+    public function volume();
+}
+
+class Cuboid implements ShapeInterface, ThreeDimensionalShapeInterface
+{
+    public function area()
+    {
+        // calculate the surface area of the cuboid
+    }
+
+    public function volume()
+    {
+        // calculate the volume of the cuboid
+    }
+}
+
+This way, you can have a single API for managing the shapes:
+
+    interface ManageShapeInterface
+{
+    public function calculate();
+}
+
+class Square implements ShapeInterface, ManageShapeInterface
+{
+    public function area()
+    {
+        // calculate the area of the square
+    }
+
+    public function calculate()
+    {
+        return $this->area();
+    }
+}
+
+class Cuboid implements ShapeInterface, ThreeDimensionalShapeInterface, ManageShapeInterface
+{
+    public function area()
+    {
+        // calculate the surface area of the cuboid
+    }
+
+    public function volume()
+    {
+        // calculate the volume of the cuboid
+    }
+
+    public function calculate()
+    {
+        return $this->area();
+    }
+}
+
+
+
