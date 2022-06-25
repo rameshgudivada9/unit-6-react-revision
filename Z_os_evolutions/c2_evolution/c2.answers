@@ -1,0 +1,387 @@
+Q1 a) What do you know about client server architecture?
+ For example, the server could request something from a database server, which in this case, would make the server a client of the database server. 
+ Examples of computer applications that use the client–server model are ​Email​, network printing​, and the ​World Wide Web​.
+
+ The client, in client/server computing is much like the customer in a restaurant. 
+ The client requests a service, like running an application or accessing some information from a data base. 
+ The server becomes responsible for performing the service and returning the information to the client in a timely manner. 
+ The server is like the waiter in a restaurant responsible for handling the client's requests and delivering the finished product to the client.
+Client/server computing has two basic components, a client and a server.
+Client: The one that requests information.
+ e.g. web browser, mobile app, IoT device, terminal/curl 
+ Server: The one that supplies the information requested by the client. e.g. Application Server, DB server, Rest Endpoint.
+The client requests a service to be performed. This service might be to run an application, query a data base, print a document, or even perform a backup or recovery procedure.
+
+
+
+N-tier Architecture 
+Single Tier or 1-Tier Architecture:
+It is the simplest one as it is equivalent to running the application on the personal computer. 
+All of the required components for an application to run are on a single application or server. 
+Presentation layer, Business logic layer, and data layer are all located on a single machine.
+
+2-Tier Architecture:
+It is like Client-Server architecture, where communication takes place between client and server. 
+In this type of software architecture, the presentation layer or user interface layer runs on the client side while dataset layer gets executed and stored on server side.
+
+3-Tier Architecture
+3-tier architecture has three different layers. Presentation layer (front end) View Business Logic layer (application layer : Java, Python etc.) Controller(delegation) + Service Database layer (SQL, NoSQL, JSON, CSV, file system) Model
+
+Interceptor: Performs checks
+You → Interceptor (perform check) → deleteAllUsers You → API gateway → APIs
+
+-------------------------------------------------------------------------------------------
+Q1)b)What is the difference between DNS and IP address?
+ DNS::
+The Domain Name System (DNS) is the phonebook of the Internet. 
+Humans access information online through domain names, like nytimes.com or espn.com.
+ Web browsers interact through Internet Protocol (IP) addresses. 
+ DNS translates domain names to IP addresses so browsers can load Internet resources.
+ Each device connected to the Internet has a unique IP address which other machines use to find the device. 
+ DNS servers eliminate the need for humans to memorize IP addresses such as 192.168.1.1 (in IPv4), 
+ or more complex newer alphanumeric IP addresses such as 2400:cb00:2048:1::c629:d7a2 (in IPv6).
+
+ IP::
+  IP stands for internet protocol. 
+  It is a protocol defined in the TCP/IP model used for sending the packets from source to destination. 
+  The main task of IP is to deliver the packets from source to the destination based on the IP addresses available in the packet headers. 
+  IP defines the packet structure that hides the data which is to be delivered as well as the addressing method that labels the datagram with a source and destination information.
+
+
+
+
+------------------------------------------------------------------------------------------------
+  Q2. What is CAP theorem, discuss a scenario where CAP theorem helps you choose a technology over the other or helps you make a design decision.
+  The CAP Theorem is comprised of three components (hence its name) as they relate to distributed data stores:
+
+Consistency:
+ All reads receive the most recent write or an error.
+Availability:
+ All reads contain data, but it might not be the most recent.
+Partition tolerance: 
+The system continues to operate despite network failures (ie; dropped partitions, slow network connections, or unavailable network connections between nodes.)
+In normal operations, your data store provides all three functions. 
+But the CAP theorem maintains that when a distributed database experiences a network failure, you can provide either consistency or availability.
+
+It’s a tradeoff. All other times, all three can be provided. But, in the event of a network failure, a choice must be made.
+
+In the theorem, partition tolerance is a must. 
+The assumption is that the system operates on a distributed data store so the system, by nature, operates with network partitions. 
+Network failures will happen, so to offer any kind of reliable service, partition tolerance is necessary—the P of CAP.
+
+That leaves a decision between the other two, C and A. When a network failure happens, one can choose to guarantee consistency or availability:
+
+High consistency comes at the cost of lower availability.
+High availability comes at the cost of lower consistency.
+Consistency in CAP is different than that of ACID. Consistency in CAP means having the most up-to-date information. 
+(ACID refers to a different database event. In ACID, consistency means any new transaction to the database won’t corrupt the database.)
+
+BASE (basically available, soft state, and eventually consistent) implies the database will, at some point, 
+classify and index the content to improve the findability/discoverability of data or information contained in the text or the object.
+More on BASE during the introduction to NoSQL.
+
+BASE describes database processing germane to a NoSQL database, such as a data lake. 
+An increasing number of data volumes and variability started the BASE philosophy. BASE provides less assurance than ACID, 
+but it scales very well and reacts well to rapid data changes. BASE construction has three properties:
+
+--------------------------------------------------------------------------------------------------
+Q3) What are SOLID principles? Explain with examples wherever possible.
+SOLID can be applied to any OOP program.
+SOLID is a mnemonic device for 5 design principles of object-oriented programs (OOP) that result in readable, adaptable, and scalable code. 
+The 5 principles of SOLID are:
+● Single-responsibility principle
+● Open-closed principle
+● Liskov substitution principle
+● Interface segregation principle ● Dependency inversion principle
+--------------------------------------------------
+S: Single-responsibility principle:::
+
+A class should have one and only one reason to change, meaning that a class should have only one job. 
+For example, consider an application that takes a collection of shapes—circles,
+ and squares—and calculates the sum of the area of all the shapes in the collection.
+
+ For squares, you will need to know the length of a side:
+ class Square
+{
+    public $length;
+
+    public function construct($length)
+    {
+        $this->length = $length;
+    }
+}
+
+For circles, you will need to know the radius:
+class Circle
+{
+    public $radius;
+
+    public function construct($radius)
+    {
+        $this->radius = $radius;
+    }
+}
+
+
+Next, create the AreaCalculator class and then write up the logic to sum up the areas of all provided shapes. 
+The area of a square is calculated by length squared. 
+The area of a circle is calculated by pi times radius squared.
+
+class AreaCalculator
+{
+    protected $shapes;
+
+    public function __construct($shapes = [])
+    {
+        $this->shapes = $shapes;
+    }
+
+    public function sum()
+    {
+        foreach ($this->shapes as $shape) {
+            if (is_a($shape, 'Square')) {
+                $area[] = pow($shape->length, 2);
+            } elseif (is_a($shape, 'Circle')) {
+                $area[] = pi() * pow($shape->radius, 2);
+            }
+        }
+
+        return array_sum($area);
+    }
+
+    public function output()
+    {
+        return implode('', [
+          '',
+              'Sum of the areas of provided shapes: ',
+              $this->sum(),
+          '',
+      ]);
+    }
+}
+
+To use the AreaCalculator class, you will need to instantiate the class and pass in an array of shapes and display the output at the bottom of the page.
+
+Here is an example with a collection of three shapes:
+
+a circle with a radius of 2
+a square with a length of 5
+a second square with a length of 6
+
+
+$shapes = [
+  new Circle(2),
+  new Square(5),
+  new Square(6),
+];
+
+$areas = new AreaCalculator($shapes);
+
+echo $areas->output();
+
+
+-----------------------------------------------------------------------
+● O: Open-closed principle:::
+
+Open-closed Principle (OCP) states:Objects or entities should be open for extension but closed for modification.
+
+This means that a class should be extendable without modifying the class itself.
+
+Let’s revisit the AreaCalculator class and focus on the sum method:
+class AreaCalculator
+{
+    protected $shapes;
+
+    public function __construct($shapes = [])
+    {
+        $this->shapes = $shapes;
+    }
+
+    public function sum()
+    {
+        foreach ($this->shapes as $shape) {
+            if (is_a($shape, 'Square')) {
+                $area[] = pow($shape->length, 2);
+            } elseif (is_a($shape, 'Circle')) {
+                $area[] = pi() * pow($shape->radius, 2);
+            }
+        }
+
+        return array_sum($area);
+    }
+}
+
+A way you can make this sum method better is to remove the logic to calculate the area of each shape out of the AreaCalculator class method and attach it to each shape’s class.
+
+Here is the area method defined in Square:
+
+class Square
+{
+    public $length;
+
+    public function __construct($length)
+    {
+        $this->length = $length;
+    }
+
+    public function area()
+    {
+        return pow($this->length, 2);
+    }
+}
+
+
+And here is the area method defined in Circle:
+
+class Circle
+{
+    public $radius;
+
+    public function construct($radius)
+    {
+        $this->radius = $radius;
+    }
+
+    public function area()
+    {
+        return pi() * pow($shape->radius, 2);
+    }
+}
+
+The sum method for AreaCalculator can then be rewritten as:
+
+    class AreaCalculator
+{
+    // ...
+
+    public function sum()
+    {
+        foreach ($this->shapes as $shape) {
+            $area[] = $shape->area();
+        }
+
+        return array_sum($area);
+    }
+}
+
+--------------------------------------------------------
+● I: Interface segregation principle:::
+
+A client should never be forced to implement an interface that it doesn’t use, 
+or clients shouldn’t be forced to depend on methods they do not use.
+
+
+Let’s consider what would happen if you were to modify the ShapeInterface to add another contract:
+    interface ShapeInterface
+{
+    public function area();
+
+    public function volume();
+}
+
+This would violate the interface segregation principle. 
+Instead, you could create another interface called ThreeDimensionalShapeInterface that has the volume contract and three-dimensional shapes can implement this interface:
+
+interface ShapeInterface
+{
+    public function area();
+}
+
+interface ThreeDimensionalShapeInterface
+{
+    public function volume();
+}
+
+class Cuboid implements ShapeInterface, ThreeDimensionalShapeInterface
+{
+    public function area()
+    {
+        // calculate the surface area of the cuboid
+    }
+
+    public function volume()
+    {
+        // calculate the volume of the cuboid
+    }
+}
+
+This way, you can have a single API for managing the shapes:
+
+    interface ManageShapeInterface
+{
+    public function calculate();
+}
+
+class Square implements ShapeInterface, ManageShapeInterface
+{
+    public function area()
+    {
+        // calculate the area of the square
+    }
+
+    public function calculate()
+    {
+        return $this->area();
+    }
+}
+
+class Cuboid implements ShapeInterface, ThreeDimensionalShapeInterface, ManageShapeInterface
+{
+    public function area()
+    {
+        // calculate the surface area of the cuboid
+    }
+
+    public function volume()
+    {
+        // calculate the volume of the cuboid
+    }
+
+    public function calculate()
+    {
+        return $this->area();
+    }
+}
+
+
+
+
+Q4 In the following diagram (it intentionally contains pseudo code) There is an interface DataManager with two functions.
+The three classes implement this interface and provide implementation to the read and write methods.
+The write method throws an exception in the InMemoryRealmManager class because it doesn’t need the write() method.
+
+
+A. Which of the design principles: solid principles or clean code pattern is being violated in this scenario.
+B. Rectify/fix it with the best practices and also demonstrate the corresponding pseudo code
+
+protocol DataManager{
+    function read();
+    function write();
+}
+
+class DiskRealmManager: DataManager{
+    function read(){      
+System.out.println("Reading DiskRealmManager")
+    }
+    function write(){
+System.out.println("Saving Into Realm")
+    }
+}
+
+class DiskCoreDataManager: DataManager{
+    function read(){      
+System.out.println("Reading DiskCoreDataManager")
+    }
+    function write(){
+System.out.println("Saving Into Realm")
+    }
+}
+
+class InMemoryRealmManager: DataManager{
+    function read(){      
+System.out.println("Reading InMemoryRealmManager")
+    }
+    function write(){
+        fatalError();
+    }
+}
