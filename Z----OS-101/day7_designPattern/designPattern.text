@@ -1,0 +1,97 @@
+
+
+Q2} Explain Singleton Design Pattern with suitable examples.
+The Singleton design pattern comes under the creational pattern type.It is one of the most simple design pattern in terms of the modelling but on the other hand this is one of the most controversial pattern in terms of complexity of usage.
+Sometimes it is necessary that one and only one instance of a particular class exists in the entire Java Virtual Machine. 
+This is achieved through the Singleton design pattern .
+The Singleton pattern is widely used and has proved its usability in designing software. 
+Although the pattern is not specific to Java, it has become a classic in Java programming.
+
+Implementation of Singleton Design Pattern
+There are many ways this can be done in Java. 
+All these ways differs in their implementation of the pattern, but it in the end, they all achieve the same end result of a
+
+single instance.
+public class Client {
+    public static void main(String[] args) {
+        //2 ways of creating object
+        //1. create new object using new operator + constructor e.g. new User()
+        //2. Using class name and decalring it static
+        MySingleton one = MySingleton.getUniqueInstance();
+        MySingleton two = MySingleton.getUniqueInstance();
+        User u1=new User();
+        User u2 = new User();
+        System.out.println(one==two);
+        System.out.println(u1==u2);
+        System.out.println(MySingletonWithEnum.INSTANCE);
+} }
+class User{}
+//class loading...
+//eager loading/initialization
+class MySingleton1{
+    private static MySingleton1 uniqueInstance = new MySingleton1();
+    public static MySingleton1 getUniqueInstance() {
+        return uniqueInstance;
+} }
+//Lazy initialisation
+class MySingleton{
+    private static volatile MySingleton uniqueInstance;
+    public static synchronized MySingleton getUniqueInstance() {
+        if(uniqueInstance==null)
+            uniqueInstance=new MySingleton();
+        return uniqueInstance;
+    }
+}
+//using enum
+enum COLOR {R}
+ enum MySingletonWithEnum {
+    INSTANCE;
+    //private MySingletonWithEnum() { System.out.println("Here"); }
+}
+
+
+Q3) What is Eager initialization & Lazy initialization.
+
+1) Eager initialization
+If the program will always need an instance, or if the cost of creating the instance is not too large in terms of time/resources, 
+the programmer can switch to eager initialization, which always creates an instance when the class is loaded into the JVM.
+problems with Eager Loading:
+1. Slows down application at startup 
+2. Wastes a lot of memory
+public class SingletonExample {
+    // Static member holds only one instance of the
+// SingletonExample class
+private static SingletonExample singletonInstance =
+new SingletonExample();
+// SingletonExample prevents any other class from instantiating
+private SingletonExample() {}
+// Providing Global point of accesspublic static SingletonExample getSingletonInstance() {
+return singletonInstance; }
+}
+
+2). Lazy initialization
+The Singleton pattern is implemented by creating a class with a method that creates a new instance of the object if one does not exist. 
+If an instance already exists, it simply returns a reference to that object. 
+To make sure that the object cannot be instantiated any other way, the constructor is made private. 
+Although a Singleton can be implemented as
+a static instance, it can also be lazily constructed, requiring no memory or resources until needed.
+
+2. Lazy initialization with Double check locking
+The above code works absolutely fine in a single threaded environment and processes the result faster because of lazy initialization. 
+However the above code might create some abrupt behavior in the results in a multithreaded environment as in this situation
+multiple threads can possibly create multiple instance of the same SingletonExample class if they try to access the getSingletonInstance() method at the same time.
+In the multithreading environment to prevent each thread to create another instance of singleton object and thus creating concurrency issue we will need to use locking mechanism. This can be achieved by synchronized keyword. By using this synchronized keyword we prevent
+Thread2 or Thread3 to access the singleton instance while Thread1 is inside the method getSingletonInstance().
+
+From code perspective it means:
+public static synchronized SingletonExample getSingletonInstance() { if (null ==singletonInstance) {
+singletonInstance = new SingletonExample(); }
+return singletonInstance; }
+So this means that every time the getSingletonInstance() is called it gives us an additional overhead . 
+To prevent this expensive operation we will use double checked locking so that the synchronization happens only during the first call and we limit this expensive operation to happen only once.
+public static volatile SingletonExample getSingletonInstance() { if (null ==
+singletonInstance) {
+    synchronized (SingletonExample.class){ if (null == singletonInstance) {
+singletonInstance = new SingletonExample();
+}} }
+return singletonInstance; }
