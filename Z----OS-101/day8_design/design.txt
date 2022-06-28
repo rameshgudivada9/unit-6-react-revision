@@ -32,3 +32,43 @@ public Context(Strategy strategy) { this.strategy = strategy;
 }
 public int apply(int a, int b) { return strategy.compute(a, b);
 } }
+
+Q2.Suppose you are working on a e-commerce project your task is to create a Payment Strategy i.e. users should have flexibility to choose among different payment modes (Example: CreditCard, Paypal,Gpay). Demonstrate this functionality
+Hnits:
+Create Below classes:
+1. Class : Item
+upcCode; price;
+2. Class
+Methods: addItemList(Item item); removeItemList(Item item);
+CalculateTotal(); → will calculate total bills of item in cart
+pay(PaymentStrategy paymentMethod); → will take the object of any strategy & call
+Int amount=calculateTotal() paymentMethod.pay( amount)
+3. Class: CreditCardStrategy
+Having credit card details Cvv;
+carNumber;
+ExpiryDate;
+Method void pay(int amount) – Assume in this method code for payment through credit card is present.
+Inside this method just print ” {amount} paid using Credit Card”.
+4.Class :PaypalStrategy
+Having paypal account detail
+emailId;
+password;
+Methods:void pay(int amount) → Assume in this method code for payment through credit card is present.
+Inside this method just print ” {amount} paid using Credit Card”.
+When you have created all these classes you need to use strategy pattern such that user can choose any payment mode from main Runner class as shown below:
+//Main Runner class
+public class PaymentStrategyRunner {
+   public static void main(String[] args) {
+       ShoppingCart cart = new ShoppingCart();
+       Item item1 = new Item("1234",10);
+       Item item2 = new Item("5678",40);
+       cart.addItem(item1);
+       cart.addItem(item2);
+//pay by paypal
+       cart.pay(new PaypalStrategy("myemail@example.com",
+"mypwd"));
+//pay by credit card
+       cart.pay(new CreditCardStrategy("Pankaj Kumar",
+"1234567890123456", "786", "12/15"));
+   }
+}
