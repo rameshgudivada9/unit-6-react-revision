@@ -1,0 +1,17 @@
+What is caching ?
+Caching  is the process of storing data in a cache. A cache is a temporary storage area. For example, 
+the files you automatically request by looking at a Web page are stored on your hard disk in a cache subdirectory under the directory for your browser.
+
+In which layers caching can be implemented.?
+Applications: Caches can be applied and leveraged throughout various layers of technology including Operating Systems, 
+Networking layers including Content Delivery Networks (CDN) and DNS, web applications, and Databases.
+If the data is modified in the database, it should be invalidated in the cache, if not, this can cause inconsistent application behavior. 
+There are majorly three kinds of caching systems: Write-through cache, Write-around cache, Write-back cache.
+
+Q3. What is the meaning of cache miss & cache hit.
+A cache miss is an event in which a system or application makes a request to retrieve data from a cache, 
+but that specific data is not currently in cache memory. Contrast this to a cache hit, 
+in which the requested data is successfully retrieved from the cache.
+To calculate a hit ratio, divide the number of cache hits with the sum of the number of cache hits, 
+and the number of cache misses. For example, if you have 51 cache hits and three misses over a period of time, 
+then that would mean you would divide 51 by 54. The result would be a hit ratio of 0.944.
